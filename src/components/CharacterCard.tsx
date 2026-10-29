@@ -1,10 +1,16 @@
 import type {CharacterCardProps} from "./CharacterCardProps.ts";
+import "./CharacterCard.css"
+import {useNavigate} from "react-router";
 
 export function CharacterCard({character}: { character: CharacterCardProps }) {
     const {id, name, image, species, status} = character
+    const navigate = useNavigate();
+
     return (
-        <div key={id}
-             style={{border: '1px solid #ccc', borderRadius: '8px', padding: '1rem', textAlign: 'center'}}>
+        <div className="character-card-container"
+             onClick={() => {
+                 navigate("/characters/" + id)
+             }}>
             <img
                 src={image}
                 alt={name}

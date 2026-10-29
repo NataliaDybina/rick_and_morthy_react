@@ -1,0 +1,80 @@
+
+.character-card {
+    background-color: #1e1e24;
+    color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+    font-family: sans-serif;
+    border: 1px solid #333;
+}
+
+.character-image-container {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background-color: #2b2b36;
+}
+
+.character-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-content {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.character-title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #f5f5f5;
+}
+
+.character-status-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.character-status-text {
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.character-info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid #333;
+    padding-top: 0.8rem;
+}
+
+.character-info-text {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.2;
+}
+
+.character-sub-text {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+}
