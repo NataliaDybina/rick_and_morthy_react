@@ -1,6 +1,26 @@
-import type {CharacterCardProps} from "./CharacterCardProps.ts";
 import "./CharacterCard.css"
 import {useNavigate} from "react-router";
+
+export type CharacterCardProps = {
+    id: number;
+    name: string;
+    status: string;
+    species: string;
+    type?: string;
+    gender?: string;
+    origin?: {
+        name: string;
+        url: string;
+    };
+    location?: {
+        name: string;
+        url: string;
+    };
+    image?: string;
+    episode?: string[];
+    url?: string;
+    created?: string;
+}
 
 export function CharacterCard({character}: { character: CharacterCardProps }) {
     const {id, name, image, species, status} = character

@@ -1,13 +1,15 @@
 import "./CharacterDetails.css";
-import {response} from "../components/CharacterCardProps.ts";
+import {type CharacterCardProps} from "../components/CharacterCard.tsx";
 import {useParams} from "react-router";
 import NotFound from "./NotFound.tsx";
 
-
-export default function CharacterDetails() {
+type CharacterDetailsProps = {
+    characters: CharacterCardProps[];
+}
+export default function CharacterDetails({characters}: CharacterDetailsProps) {
     const params = useParams();
     const characterId = params.id ? Number(params.id) : null;
-    const character = response.find(character => character.id === characterId);
+    const character = characters.find(character => character.id === characterId);
 
     if (!character) {
         return <NotFound/>;
@@ -31,18 +33,18 @@ export default function CharacterDetails() {
                 </div>
 
                 <div className="character-info-group">
-                    <p className="character-info-text">
+                    {character.location && <p className="character-info-text">
                         <strong>Last known location:</strong><br/>
                         <span className="character-sub-text">{character.location.name}</span>
-                    </p>
-                    <p className="character-info-text">
+                    </p>}
+                    {character.origin && <p className="character-info-text">
                         <strong>Origin:</strong><br/>
                         <span className="character-sub-text">{character.origin.name}</span>
-                    </p>
-                    <p className="character-info-text">
+                    </p>}
+                    {character.episode && <p className="character-info-text">
                         <strong>Episodes:</strong> <span
                         className="character-sub-text">{character.episode.length} appearances</span>
-                    </p>
+                    </p>}
                 </div>
             </div>
         </div>
