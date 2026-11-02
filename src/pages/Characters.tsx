@@ -1,9 +1,12 @@
 import {useState} from "react";
-import {response} from "../components/CharacterCardProps.ts";
+import {type CharacterCardProps} from "../components/CharacterCard.tsx";
 import {CharacterCard} from "../components/CharacterCard.tsx";
 import {Searchbar} from "../components/Searchbar.tsx";
 
-export default function Characters() {
+type CharactersProps = {
+    characters: CharacterCardProps[];
+}
+export default function Characters({characters}: CharactersProps) {
     const [searchTerm, setSearchTerm] = useState("");
     const [visibleCount, setVisibleCount] = useState(5);
 
@@ -11,7 +14,7 @@ export default function Characters() {
         setSearchTerm(term.toLowerCase());
         setVisibleCount(5)
     }
-    const filteredCharacters = response.filter(character => character.name.toLowerCase().includes(searchTerm))
+    const filteredCharacters = characters.length > 0 ? characters.filter(character => character.name.toLowerCase().includes(searchTerm)) : []
     const charactersToDisplay = filteredCharacters.slice(0, visibleCount)
 
     function handleShowNextFive() {

@@ -1,9 +1,12 @@
 import {NavLink} from "react-router";
 import "./Navbar.css"
-import {navItems} from "../routes/Data.tsx";
+import type {NavItem} from "../routes/Data.tsx";
 
 
-export default function Navbar() {
+type NavbarProps = {
+    navItems: NavItem[];
+}
+export default function Navbar({navItems}: NavbarProps) {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -13,7 +16,7 @@ export default function Navbar() {
                         {navItems.map(navItem => (
                             navItem.label && <li key={navItem.path} className="nav-item">
                                 <NavLink
-                                    to={navItem.path}
+                                    to={navItem.path} end
                                     className={({isActive}) => isActive ? "nav-button active" : "nav-button"}>
                                     {navItem.label}
                                 </NavLink>
